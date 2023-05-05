@@ -1,3 +1,3 @@
 ﻿  Lab3P3_JoedSosa.cpp
-C:\Users\joeds\OneDrive\Escritorio\Progra III\Lab3P3_JoedSosa\Lab3P3_JoedSosa.cpp(48,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\joeds\OneDrive\Escritorio\Progra III\Lab3P3_JoedSosa\Lab3P3_JoedSosa.cpp(148,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Lab3P3_JoedSosa.vcxproj -> C:\Users\joeds\OneDrive\Escritorio\Progra III\Lab3P3_JoedSosa\x64\Debug\Lab3P3_JoedSosa.exe

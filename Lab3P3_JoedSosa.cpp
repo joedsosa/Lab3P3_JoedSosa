@@ -2,7 +2,101 @@
 #include <ctime>
 #include <iostream>
 using namespace std;
+void XOR(){
+int opc = 0;
+while (opc != 4) {
+	int xor1[8];
+	int xor2[8];
+	int XOR[8];
+	cout << "1. Guardar datos en XOR" << endl;
+	cout << "2. Obtener datos de disco 1" << endl;
+	cout << "3. Obtener datos de disco 2" << endl;
+	cout << "4. Salir" << endl;
+	cout << "Ingrese la opcion: " << endl;
+	cin >> opc;
+	switch (opc) {
+	case 1:
+		cout << "Ingrese datos de DISCO 1" << endl;
+		for (int i = 0; i < 8; i++) {
+			cout << "Disco 1 [" << i << "]: ";
+			cin >> xor1[i];
+		}
+		
+		cout << "Ingrese datos de DISCO 2" << endl;
+		for (int i = 0; i < 8; i++) {
+			cout << "Disco 2 [" << i << "]: ";
+			cin >> xor2[i];
+		}
+		for (int i = 0; i < 8; i++) {
+			if (xor1[i] == xor2[i])
+				XOR[i] = 0;
+			else
+				XOR[i] = 1;
+				
+		}		
+		cout << "Disco XOR: [ ";
+	    for (int i = 0; i < 8; i++){
+			cout << XOR[i] << " ";
+		}
+		cout << "]" << endl;
+		break;
+	case 2:
+		cout << "Disco XOR: [ ";
+		for (int i = 0; i < 8; i++) {
+			cout << XOR[i] << " ";
+		}
+		cout << "]" << endl;
+		
+		cout << "\nDisco 2: [ ";
+		for (int i = 0; i < 8; i++) {
+			cout << xor2[i] << " ";
+		}
+		cout << "]" << endl;
+		
+		
+		for (int i = 0; i < 8; i++) {
+			if (xor2[i] == XOR[i])
+				xor1[i] = 0;
+			else
+				xor1[i] = 1;
+		}
+		cout << "Datos calculados del disco 1: [ ";
+		for (int i = 0; i < 8; i++) {
+			cout << xor1[i] << " ";
+		}
 
+		cout << "]" << endl;
+		break;
+	case 3:
+		
+		cout << "Disco XOR: [ " << endl;
+		for (int i = 0; i < 8; i++) {
+			cout << XOR[i] << " ";
+		}
+		cout << "]" << endl;
+		
+			cout << "\nDisco 1: [ ";
+		for (int i = 0; i < 8; i++) {
+			cout << xor1[i] << " ";
+		}
+		cout << "]" << endl;
+
+		cout << "Datos calculados del disco 2: [ ";
+		for (int i = 0; i < 8; i++) {
+			if (xor1[i] == XOR[i])
+				xor2[i] = 0;
+			else
+				xor2[i] = 1;
+			
+		}
+		for (int i = 0; i < 8; i++){
+			cout << xor2[i] << " ";
+		}
+		cout << "]" << endl;
+		break;
+	}
+}
+}
 
 char** Llenar_Matriz(int filas, int columnas) {
 	char** matriz = new char*[filas];
@@ -18,6 +112,7 @@ char** Llenar_Matriz(int filas, int columnas) {
 int posicion_random(int n) {
 	return rand() % n;
 }
+// Pone los obstaculos aleatoriamente mandando el numero de filas y columnas al metodo de posicion_random
 void agregar_osbtaculos(char** matriz, int obstaculos, int filas, int columnas) {
 	int i = 0;
 	while (i < obstaculos) {
@@ -29,14 +124,18 @@ void agregar_osbtaculos(char** matriz, int obstaculos, int filas, int columnas) 
 		}
 	}
 }
+// recibe la matriz filas y columnas e imprime ordenamente las barras y comillas con el estilo pedido
 void imprimir_matriz(char** matriz, int filas, int columnas) {
+	
 	for (int i = 0;i < filas;i++) {
+		cout << "|";
 		for (int j = 0;j < columnas; j++) {
-			cout << "|" << matriz[i][j] << " ";
+			cout << "'" << matriz[i][j] << "' ";
 		}
 		cout <<"|" << endl;
 	}
 }
+//borra la memoria y las posiciones de la matriz
 void mem_delete(char** matriz, int filas) {
 	for (int i = 0;i < filas;i++) {
 		delete[] matriz[i];
@@ -44,6 +143,7 @@ void mem_delete(char** matriz, int filas) {
 	}
 	delete[] matriz;
 }
+// Pide al usuario la informacion requerida para crear la matriz y se valida el numero de filas y columnas y los obstaculos
 void Matrix() {
 	srand(time(NULL));
 	int filas = 0, columnas = 0, obstaculos, casillastot;
@@ -70,6 +170,7 @@ void Matrix() {
 	imprimir_matriz(matriz, filas, columnas);
 
 }
+
 int main(){
 	
 	char opcion;
@@ -85,7 +186,7 @@ int main(){
 		cin >> opcion;
 		switch (opcion) {
 		case '1':
-			
+			XOR();
 			break;
 		case '2':
 			Matrix();
