@@ -94,7 +94,9 @@ while (opc != 4) {
 		}
 		cout << "]" << endl;
 		break;
+		default:cout << "Opcion ivalida" << endl;
 	}
+	
 }
 }
 
